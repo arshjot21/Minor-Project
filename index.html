@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FD Trend | Fashion Destination - Discover Trends & Express Style</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="FD Trend is a premier fashion blogging platform showcasing haute couture, streetwear trends, sustainable fashion insights, and expert styling guides." />
+  <meta name="keywords" content="FD Trend, Fashion Blog, Streetwear, Sustainable Fashion, Luxury Fashion, Style Tips, Men's Fashion, Women's Fashion" />
+  <meta name="author" content="Arshjot Kaur Deol" />
+
+  <!-- Open Graph / Social Sharing Meta Tags -->
+  <meta property="og:title" content="FD Trend | Fashion Destination" />
+  <meta property="og:description" content="Discover Trends. Express Style. Inspire Fashion. Explore haute couture, streetwear drops, and sustainable styling." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Playfair Display & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- App Container Mount -->
+  <div id="app"></div>
+
+  <!-- Back to top floating button -->
+  <button id="backToTop" class="back-to-top" title="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </button>
+
+  <!-- Application Engine Script -->
+  <script src="./script.js"></script>
+
+  <script>
+    // Back to top button visibility scroll handler
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (btn) {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
