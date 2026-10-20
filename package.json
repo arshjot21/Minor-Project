@@ -1,19 +1,14 @@
 {
-  "name": "fd-trend-backend",
+  "name": "fd-trend-fashion-design-platform",
   "version": "1.0.0",
-  "description": "FD Trend Express REST API Server",
-  "main": "index.js",
-  "type": "commonjs",
+  "private": true,
+  "description": "FD Trend - Fashion Design Blog and Editorial Discovery Platform",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js"
+    "setup": "npm install && cd Backend && npm install && cd ../Frontend && npm install",
+    "server": "cd Backend && npm run dev",
+    "client": "cd Frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd Frontend && npm run build"
   },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "better-sqlite3": "^11.8.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
-  }
+  "dependencies": { "concurrently": "^8.2.2" }
 }
