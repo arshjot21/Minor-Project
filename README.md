@@ -1,0 +1,71 @@
+# FD Trend — Fashion Design Trend Blog / Platform
+
+A responsive editorial fashion website for the FD (Fashion Designing) minor project.
+
+## Structure
+
+- `Frontend/` — React + Vite editorial interface
+- `Backend/` — Node.js + Express + SQLite API
+- `README.md` — setup notes
+
+## Run locally on Windows
+
+### Terminal 1 — Backend
+
+```powershell
+cd Backend
+npm.cmd install
+npm.cmd run dev
+```
+
+Keep this terminal running. The API runs on port 5000.
+
+### Terminal 2 — Frontend
+
+```powershell
+cd Frontend
+npm.cmd install
+npm.cmd run dev
+```
+
+Open the local Vite URL shown in the terminal, normally `http://localhost:3000/`.
+
+## Local editorial images
+
+The project includes three supplied fashion photographs in `Frontend/public/images/`:
+
+- `fd-trend-hero.png` — primary homepage hero image
+- `fd-trend-street-style.jpeg` — Street File feature image
+- `fd-trend-editorial.jpeg` — journal feature image
+
+The first supplied photograph is intentionally used as the homepage hero.
+
+
+## Editorial image assets
+The project includes locally stored, high-quality editorial photographs supplied for FD Trend. They are used in the Beauty, Culture and Collections visual dispatches and category archives so the presentation remains consistent even without external image access.
+
+
+## Demo accounts
+
+Use these seeded accounts after starting the backend:
+
+- **Editor / admin:** `admin@fdtrend.com` / `admin123`
+- **Reader account:** `user@fdtrend.com` / `user123`
+
+The editor account opens the Editorial Desk from the top navigation. Use it to publish a new article. These are local demonstration credentials only; change or remove them before any public deployment.
+
+## Main working features
+
+- Responsive editorial home page and mobile navigation
+- Journal categories, article details, trend index, designer profiles, collections and street-style pages
+- Search across stories, trends, designers and collections
+- Reader registration and sign-in, profile and saved library
+- Article save/like/comment features where sign-in is required
+- Editor dashboard, article publishing and newsletter subscription
+
+## Troubleshooting
+
+- Start the backend first and keep its terminal open on port `5000`.
+- Start the frontend separately and open `http://localhost:3000/`.
+- If a page reports an API error, check that both terminals are still running. The frontend sends `/api` requests through the Vite proxy to the backend.
+- The database file is created automatically in `Backend/db/` when the server starts.
