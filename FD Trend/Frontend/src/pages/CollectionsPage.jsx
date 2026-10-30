@@ -1,0 +1,4 @@
+import React,{useEffect,useState} from 'react';
+import {api} from '../services/api';
+import {pickImage} from '../data';
+export default function CollectionsPage(){const [data,setData]=useState([]);useEffect(()=>{api.getCollections({limit:50}).then(setData).catch(console.error)},[]);return <div className="container archive"><div className="eyebrow">Collections / Lookbooks</div><h1 className="display">The collection<br/>archive.</h1><p className="page-deck">Seasonal references organized by designer, year and visual direction.</p><div className="collection-grid" style={{marginTop:50}}>{data.map((c,i)=><article className="collection-card" key={c.id}><img src={pickImage(c.cover_image,i)} alt={c.name}/><div className="collection-copy"><div className="eyebrow">{c.season} / {c.year}</div><h3>{c.name}</h3><p>{c.description}</p><div className="story-tag">{c.designer_name} / {c.category_type}</div></div></article>)}</div></div>}

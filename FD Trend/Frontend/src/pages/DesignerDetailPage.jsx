@@ -1,0 +1,5 @@
+import React,{useEffect,useState} from 'react';
+import {useParams,Link} from 'react-router-dom';
+import {api} from '../services/api';
+import {pickImage} from '../data';
+export default function DesignerDetailPage(){const {id}=useParams();const [d,setD]=useState(null);useEffect(()=>{api.getDesignerById(id).then(x=>setD(x.designer)).catch(console.error)},[id]);if(!d)return <div className="container loading-state">Loading designer...</div>;return <div className="container article-page"><div className="eyebrow">Designer profile / {d.category_type}</div><div className="story-grid" style={{marginTop:30}}><img style={{width:'100%',aspectRatio:'4/5',objectFit:'cover'}} src={pickImage(d.profile_image,1)} alt={d.name}/><div><h1 className="article-title" style={{fontSize:'clamp(58px,8vw,110px)'}}>{d.name}</h1><p className="article-deck">{d.country} / {d.design_style}</p><div className="article-body" style={{margin:'35px 0 0'}}><p>{d.biography}</p>{d.website&&<p><a className="text-link" href={d.website} target="_blank" rel="noreferrer">Designer website /</a></p>}<Link className="text-link" to="/designers">Back to designers /</Link></div></div></div></div>}

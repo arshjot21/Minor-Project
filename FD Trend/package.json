@@ -1,0 +1,14 @@
+{
+  "name": "fd-trend-fashion-design-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FD Trend - Fashion Design Blog and Editorial Discovery Platform",
+  "scripts": {
+    "setup": "npm install && cd Backend && npm install && cd ../Frontend && npm install",
+    "server": "cd Backend && npm run dev",
+    "client": "cd Frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd Frontend && npm run build"
+  },
+  "dependencies": { "concurrently": "^8.2.2" }
+}

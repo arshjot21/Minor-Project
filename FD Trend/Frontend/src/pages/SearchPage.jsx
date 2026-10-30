@@ -1,0 +1,5 @@
+import React,{useEffect,useState} from 'react';
+import {useSearchParams,Link} from 'react-router-dom';
+import {api} from '../services/api';
+import {pickImage} from '../data';
+export default function SearchPage(){const [params]=useSearchParams();const q=params.get('q')||'';const [data,setData]=useState(null);useEffect(()=>{if(q)api.search(q).then(setData).catch(console.error)},[q]);return <div className="container search-page"><div className="eyebrow">Journal search</div><h1 className="display">Search.</h1><input className="search-input" defaultValue={q} placeholder="Try tailoring, denim, designers..." onKeyDown={e=>{if(e.key==='Enter')window.location.href=`/search?q=${encodeURIComponent(e.currentTarget.value)}`}}/>{q&&data&&<div className="search-results">{data.articles?.map((a,i)=><Link className="archive-card" to={`/articles/${a.slug}`} key={a.id}><img src={pickImage(a.cover_image,i)}/><div><div className="story-tag">{a.category_name}</div><h3>{a.title}</h3><p>{a.excerpt}</p></div></Link>)}</div>}</div>}

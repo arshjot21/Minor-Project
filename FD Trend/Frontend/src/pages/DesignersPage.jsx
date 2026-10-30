@@ -1,0 +1,5 @@
+import React,{useEffect,useState} from 'react';
+import {Link} from 'react-router-dom';
+import {api} from '../services/api';
+import {pickImage} from '../data';
+export default function DesignersPage(){const [data,setData]=useState([]);useEffect(()=>{api.getDesigners({limit:50}).then(setData).catch(console.error)},[]);return <div className="container archive"><div className="eyebrow">People / Creative Direction</div><h1 className="display">Designers<br/>and ideas.</h1><p className="page-deck">Profiles of designers and creative voices, with notes on silhouette, material, construction and point of view.</p><div className="designer-strip" style={{marginTop:50}}>{data.map((d,i)=><Link className="designer-tile" to={`/designers/${d.id}`} key={d.id}><img src={pickImage(d.profile_image,i)} alt={d.name}/><div className="designer-tile-copy"><div className="designer-name">{d.name}</div><div className="designer-meta">{d.country} / {d.category_type}</div><p className="story-excerpt">{d.design_style}</p></div></Link>)}</div></div>}
